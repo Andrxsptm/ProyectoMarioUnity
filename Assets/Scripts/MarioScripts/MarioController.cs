@@ -7,6 +7,10 @@ public class MarioController : MonoBehaviour
     float movement;
     public float movimientoSpeed = 5f;
     Rigidbody2D rb;
+    public LayerMask capaPiso;
+    public float groundCheckRadius = 0.2f;
+    public Transform detectarPiso;
+    public bool estaPiso;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
   
@@ -22,18 +26,31 @@ public class MarioController : MonoBehaviour
        
         if (movement > 0f)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(1, 1, -1);
         }
-        else
+        else if (movement < 0f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
         animator.SetFloat("velocidadX", Mathf.Abs(movement));
         Debug.Log(movement);
 
+        estaPiso = Physics2D.OverlapCircle(
+            detectarPiso.position,
+            groundCheckRadius,
+            capaPiso
+            );
+
+        if (Input.GetKeyDown(KeyCode.Space) && estaPiso)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 6f);
         }
+        animator.SetBool("piso", estaPiso);
+        animator.SetFloat("velocidadY", rb.linearVelocity.y);
+    }
+
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(movement * movimientoSpeed, rb.linearVelocity.y);
-     }
+    }
 }
