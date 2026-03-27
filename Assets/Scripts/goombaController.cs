@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class moneda : MonoBehaviour
+public class goombaController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,13 +17,10 @@ public class moneda : MonoBehaviour
     {
         if (other != null)
         {
-            if(other.CompareTag("Mario"))
+            if (other.CompareTag("Mario"))
             {
-                GameEngine.Instance.SumarMonedas();
-                Destroy(gameObject);
-                //ocultar game object
-                gameObject.SetActive(false);
-                Debug.Log("Si choco");
+                GameEngine.Instance.QuitarVidas();
+                Debug.Log("Quito una vida");
             }
         }
     }

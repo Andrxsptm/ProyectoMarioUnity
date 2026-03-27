@@ -11,6 +11,7 @@ public class MarioController : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public Transform detectarPiso;
     public bool estaPiso;
+    public int vidas = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
   
@@ -53,4 +54,5 @@ public class MarioController : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(movement * movimientoSpeed, rb.linearVelocity.y);
     }
+
 }
