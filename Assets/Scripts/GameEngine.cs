@@ -1,9 +1,11 @@
-using JetBrains.Annotations;
+
+using TMPro;
 using UnityEngine;
 
 public class GameEngine : MonoBehaviour
 {
     public static GameEngine Instance;
+    public TMP_Text monedasText;
     public int moneda;
     public int vidas;
  
@@ -35,7 +37,7 @@ public class GameEngine : MonoBehaviour
     public void SumarMonedas()
     {
         moneda++;
-        Debug.Log(moneda);
+        monedasText.text = "Monedas: " + moneda;
     }
     public void QuitarVidas()
     {
