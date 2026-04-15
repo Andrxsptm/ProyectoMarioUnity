@@ -34,7 +34,7 @@ public class MarioController : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
         animator.SetFloat("velocidadX", Mathf.Abs(movement));
-        Debug.Log(movement);
+        //Debug.Log(movement);
 
         estaPiso = Physics2D.OverlapCircle(
             detectarPiso.position,
