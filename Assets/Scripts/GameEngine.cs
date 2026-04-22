@@ -1,27 +1,27 @@
-
-using TMPro;
 using UnityEngine;
 
 public class GameEngine : MonoBehaviour
 {
     public static GameEngine Instance;
-    public TMP_Text monedasText;
     public int moneda;
     public int vidas;
+    public Canvas canvas;
  
 
     private void Awake()
     {
         if (Instance == null)
         {
-            DontDestroyOnLoad(gameObject);
             Instance = this;
+            DontDestroyOnLoad(gameObject);
             vidas = 10;
         }
         else
         {
-
+            Destroy(gameObject);
         }
+        
+        canvas.gameObject.SetActive(false);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,7 +38,6 @@ public class GameEngine : MonoBehaviour
     public void SumarMonedas()
     {
         moneda++;
-        monedasText.text = "Monedas: " + moneda;
     }
     public void QuitarVidas()
     {

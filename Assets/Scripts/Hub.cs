@@ -1,21 +1,18 @@
-using TMPro;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class Hub : MonoBehaviour
 {
-    public static UIManager Instance;
-    public TMP_Text monedasText;
-    public TMP_Text vidaText;
-
-    private void Awake()
+    public static Hub Instance;
+    void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-
+            Destroy(gameObject);
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,7 +24,6 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        monedasText.text = "monedas: " + GameEngine.Instance.moneda;
-        vidaText.text = "vidas: " + GameEngine.Instance.vidas;
+        
     }
 }

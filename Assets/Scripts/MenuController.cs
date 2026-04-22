@@ -2,9 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
-    void Jugar()
+    public void Jugar()
     {
-        SceneManager.LoadScene("Nivel1");
+       SceneManager.LoadScene("NivelCero");
+       GameEngine.Instance.canvas.gameObject.SetActive(true);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,6 +19,5 @@ public class MenuController : MonoBehaviour
     {
         
     }
-
-  
+      
 }
