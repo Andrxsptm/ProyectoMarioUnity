@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-
+            Destroy(gameObject);
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
