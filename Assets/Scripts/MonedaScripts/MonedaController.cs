@@ -24,6 +24,8 @@ public class moneda : MonoBehaviour
                 //ocultar game object
                 gameObject.SetActive(false);
                 Debug.Log("Si choco");
+                AudioManager.instance.PlaySFX(AudioManager.instance.moneda);
+
             }
         }
     }

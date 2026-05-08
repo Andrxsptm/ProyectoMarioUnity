@@ -2,10 +2,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
+    public static MenuController instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else 
+            DontDestroyOnLoad (gameObject);
+      
+    }
     public void Jugar()
     {
        SceneManager.LoadScene("NivelCero");
        GameEngine.Instance.canvas.gameObject.SetActive(true);
+       AudioManager.instance.CambiarMusica(AudioManager.instance.musicaNivel1);
     }
     public void Continuar()
     {

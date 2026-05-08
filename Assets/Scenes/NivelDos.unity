@@ -357,7 +357,7 @@ MonoBehaviour:
   movimientoSpeed: 5
   capaPiso:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   groundCheckRadius: 0.2
   detectarPiso: {fileID: 1236403475}
   estaPiso: 0

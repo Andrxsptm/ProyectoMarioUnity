@@ -26,7 +26,7 @@ public class GameEngine : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        AudioManager.instance.CambiarMusica(AudioManager.instance.musicaMenu);
     }
 
     // Update is called once per frame
